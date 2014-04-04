@@ -140,7 +140,8 @@ class MainWindow(QMainWindow, Ui_Wiki_Tool):
 class MyThread(QtCore.QThread):
     def __init__(self, dump, n,  parent=None):
         super(self.__class__, self).__init__(parent)    
-        self.threadnum = n        
+        self.threadnum = n
+        self.dump = dump
         
     def run(self):
         self.doRecv = True
