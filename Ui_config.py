@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/fly/eric/config.ui'
+# Form implementation generated from reading ui file 'C:\Users\fly\Documents\GitHub\Wiki-Export\config.ui'
 #
-# Created: Thu Apr  3 14:54:09 2014
-#      by: PyQt4 UI code generator 4.9.1
+# Created: Sat Apr 05 21:45:37 2014
+#      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,16 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_Dialog_config(object):
     def setupUi(self, Dialog_config):
@@ -47,10 +56,10 @@ class Ui_Dialog_config(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog_config)
 
     def retranslateUi(self, Dialog_config):
-        Dialog_config.setWindowTitle(QtGui.QApplication.translate("Dialog_config", "Select dump", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("Dialog_config", "Wikipedia dump", None, QtGui.QApplication.UnicodeUTF8))
-        self.pushButton_add.setText(QtGui.QApplication.translate("Dialog_config", "Add", None, QtGui.QApplication.UnicodeUTF8))
-        self.pushButton_del.setText(QtGui.QApplication.translate("Dialog_config", "Remove", None, QtGui.QApplication.UnicodeUTF8))
+        Dialog_config.setWindowTitle(_translate("Dialog_config", "Select dump", None))
+        self.label.setText(_translate("Dialog_config", "Wikipedia dump", None))
+        self.pushButton_add.setText(_translate("Dialog_config", "Add", None))
+        self.pushButton_del.setText(_translate("Dialog_config", "Remove", None))
 
 
 if __name__ == "__main__":

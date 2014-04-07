@@ -38,7 +38,6 @@ class MainWindow(QMainWindow, Ui_Wiki_Tool):
         """
         QMainWindow.__init__(self, parent)
         self.setupUi(self)
-        self.pool = []
         self.list_dump = QtCore.QStringList()
         
         
@@ -111,9 +110,20 @@ class MainWindow(QMainWindow, Ui_Wiki_Tool):
         """
         for n, thread in enumerate(self.pool):
             thread.stop()
-            text = "Thread %s Processus was stopped!"%str(n+1)
-            self.addText(text)
-        self.actionRun.setText("Run")
+            thread.quit()
+            thread.wait()
+        self.threadend()
+    
+    def threadend(self):
+        stopall = False
+        for one_thread in self.pool:
+            if one_thread.isRunning(): 
+                stopall = False
+                break
+            else:
+                stopall = True
+        if stopall:
+            self.actionRun.setText("Run")
         
     @pyqtSignature("bool")      
     def on_actionRun_triggered(self, checked):
@@ -123,14 +133,15 @@ class MainWindow(QMainWindow, Ui_Wiki_Tool):
         global listArticle
         listArticle = self.get_pagename()
         if self.actionRun.text() == "Run":
+            self.pool = []
             if len(listArticle):
                 self.actionRun.setText("Stop")
                 for i,  dump in enumerate(self.list_dump):
                     self.pool.append(MyThread(dump, i + 1))
                     self.pool[-1].start()
                     self.connect(self.pool[-1], QtCore.SIGNAL("msg"), self.addText)
-                    self.connect(self.pool[-1], QtCore.SIGNAL("end"), self.finished) 
-                self.finished()
+                    self.connect(self.pool[-1], QtCore.SIGNAL("end"), self.finished)
+                    self.connect(self.pool[-1], QtCore.SIGNAL("thread_end"), self.threadend)
             else:
                 msgstring = "No page to find"
                 self.addText(msgstring)
@@ -145,9 +156,9 @@ class MyThread(QtCore.QThread):
         
     def run(self):
         self.doRecv = True
-        while self.doRecv:
-            self.findPages()
-
+        self.findPages()
+        self.emit(QtCore.SIGNAL("thread_end"))
+        
     def stop(self):
         self.doRecv = False
 
@@ -208,11 +219,9 @@ class MyThread(QtCore.QThread):
                 elem.clear()
                 while elem.getprevious() is not None:
                     del elem.getparent()[0]
-            del tree
             if len(listArticle) != 0: #还有页面没找完，但是DUMP的历遍已经结束
                 msgstring = "Finish to find all page in %s, there was still %s page to find."%(self.dump, len(listArticle))
                 self.emit(QtCore.SIGNAL("msg"),msgstring)
                 msgstring = "Thread %s end"%(self.threadnum)
                 self.emit(QtCore.SIGNAL("msg"),msgstring)
-                #self.emit(QtCore.SIGNAL("end"),msgstring)
-        self.doRecv = False #整个程序跑完后
+        return

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/fly/eric/about.ui'
+# Form implementation generated from reading ui file 'C:\Users\fly\Documents\GitHub\Wiki-Export\about.ui'
 #
-# Created: Thu Apr  3 14:54:10 2014
-#      by: PyQt4 UI code generator 4.9.1
+# Created: Sat Apr 05 21:45:37 2014
+#      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,16 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_Form_about(object):
     def setupUi(self, Form_about):
@@ -29,8 +38,8 @@ class Ui_Form_about(object):
         QtCore.QMetaObject.connectSlotsByName(Form_about)
 
     def retranslateUi(self, Form_about):
-        Form_about.setWindowTitle(QtGui.QApplication.translate("Form_about", "About", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_5.setText(QtGui.QApplication.translate("Form_about", "<html><head/><body><p align=\"center\">Wiki tools version: 1.0</p><p align=\"center\">Copyright © 2014 CoMeRe.org All Rights Reserved.</p><p align=\"center\">Site: <a href=\"http://www.comere.org\"><span style=\" text-decoration: underline; color:#0000ff;\">http://www.comere.org</span></a></p><p align=\"center\">Powered By Kun JIN - <a href=\"http://www.flykun.ccom\"><span style=\" text-decoration: underline; color:#0000ff;\">flykun.com</span></a></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        Form_about.setWindowTitle(_translate("Form_about", "About", None))
+        self.label_5.setText(_translate("Form_about", "<html><head/><body><p align=\"center\">Wiki Export Tool version: 1.0</p><p align=\"center\">Copyright © 2014 CoMeRe.org All Rights Reserved.</p><p align=\"center\">Site: <a href=\"http://www.comere.org\"><span style=\" text-decoration: underline; color:#0000ff;\">http://www.comere.org</span></a></p><p align=\"center\">Powered By Kun JIN - <a href=\"http://www.flykun.ccom\"><span style=\" text-decoration: underline; color:#0000ff;\">flykun.com</span></a></p></body></html>", None))
 
 
 if __name__ == "__main__":

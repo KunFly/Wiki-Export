@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/fly/eric/main.ui'
+# Form implementation generated from reading ui file 'C:\Users\fly\Documents\GitHub\Wiki-Export\main.ui'
 #
-# Created: Thu Apr  3 14:54:09 2014
-#      by: PyQt4 UI code generator 4.9.1
+# Created: Sat Apr 05 21:45:36 2014
+#      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,16 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_Wiki_Tool(object):
     def setupUi(self, Wiki_Tool):
@@ -25,6 +34,7 @@ class Ui_Wiki_Tool(object):
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
         self.lineEdit_articlename = QtGui.QLineEdit(self.centralWidget)
+        self.lineEdit_articlename.setText(_fromUtf8(""))
         self.lineEdit_articlename.setObjectName(_fromUtf8("lineEdit_articlename"))
         self.horizontalLayout.addWidget(self.lineEdit_articlename)
         self.pushButton_add = QtGui.QPushButton(self.centralWidget)
@@ -83,6 +93,7 @@ class Ui_Wiki_Tool(object):
         self.textBrowser_status = QtGui.QTextBrowser(self.tab_3)
         self.textBrowser_status.setAutoFillBackground(False)
         self.textBrowser_status.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.textBrowser_status.setAcceptRichText(True)
         self.textBrowser_status.setObjectName(_fromUtf8("textBrowser_status"))
         self.gridLayout_2.addWidget(self.textBrowser_status, 0, 0, 1, 1)
         self.tabWidget_status.addTab(self.tab_3, _fromUtf8(""))
@@ -118,34 +129,33 @@ class Ui_Wiki_Tool(object):
         QtCore.QMetaObject.connectSlotsByName(Wiki_Tool)
 
     def retranslateUi(self, Wiki_Tool):
-        Wiki_Tool.setWindowTitle(QtGui.QApplication.translate("Wiki_Tool", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
-        self.lineEdit_articlename.setText(QtGui.QApplication.translate("Wiki_Tool", "Tap here title of article", None, QtGui.QApplication.UnicodeUTF8))
-        self.pushButton_add.setText(QtGui.QApplication.translate("Wiki_Tool", "Add", None, QtGui.QApplication.UnicodeUTF8))
-        self.pushButton_clear.setText(QtGui.QApplication.translate("Wiki_Tool", "Clear", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("Wiki_Tool", "Select Page", None, QtGui.QApplication.UnicodeUTF8))
-        self.checkBox_main.setText(QtGui.QApplication.translate("Wiki_Tool", "Main", None, QtGui.QApplication.UnicodeUTF8))
-        self.checkBox_talk.setText(QtGui.QApplication.translate("Wiki_Tool", "Talk", None, QtGui.QApplication.UnicodeUTF8))
-        self.checkBox_othertalk.setText(QtGui.QApplication.translate("Wiki_Tool", "Other Talk", None, QtGui.QApplication.UnicodeUTF8))
-        self.checkBox_archives.setText(QtGui.QApplication.translate("Wiki_Tool", "Archive", None, QtGui.QApplication.UnicodeUTF8))
-        self.textBrowser_status.setHtml(QtGui.QApplication.translate("Wiki_Tool", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        Wiki_Tool.setWindowTitle(_translate("Wiki_Tool", "Wiki Export Tool", None))
+        self.pushButton_add.setText(_translate("Wiki_Tool", "Add", None))
+        self.pushButton_clear.setText(_translate("Wiki_Tool", "Clear", None))
+        self.label.setText(_translate("Wiki_Tool", "Select Page", None))
+        self.checkBox_main.setText(_translate("Wiki_Tool", "Main", None))
+        self.checkBox_talk.setText(_translate("Wiki_Tool", "Talk", None))
+        self.checkBox_othertalk.setText(_translate("Wiki_Tool", "Other Talk", None))
+        self.checkBox_archives.setText(_translate("Wiki_Tool", "Archive", None))
+        self.textBrowser_status.setHtml(_translate("Wiki_Tool", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Press F5 to start program</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
-        self.tabWidget_status.setTabText(self.tabWidget_status.indexOf(self.tab_3), QtGui.QApplication.translate("Wiki_Tool", "Status", None, QtGui.QApplication.UnicodeUTF8))
-        self.textBrowser_result.setHtml(QtGui.QApplication.translate("Wiki_Tool", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Ubuntu\';\">Press F5 to start program</span></p></body></html>", None))
+        self.tabWidget_status.setTabText(self.tabWidget_status.indexOf(self.tab_3), _translate("Wiki_Tool", "Status", None))
+        self.textBrowser_result.setHtml(_translate("Wiki_Tool", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
-        self.tabWidget_status.setTabText(self.tabWidget_status.indexOf(self.tab_4), QtGui.QApplication.translate("Wiki_Tool", "Result", None, QtGui.QApplication.UnicodeUTF8))
-        self.toolBar.setWindowTitle(QtGui.QApplication.translate("Wiki_Tool", "toolBar", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionRun.setText(QtGui.QApplication.translate("Wiki_Tool", "Run", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionRun.setToolTip(QtGui.QApplication.translate("Wiki_Tool", "Run", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionRun.setShortcut(QtGui.QApplication.translate("Wiki_Tool", "F5", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionConfigure.setText(QtGui.QApplication.translate("Wiki_Tool", "Configure", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionConfigure.setShortcut(QtGui.QApplication.translate("Wiki_Tool", "Ctrl+O", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionAbout.setText(QtGui.QApplication.translate("Wiki_Tool", "About", None, QtGui.QApplication.UnicodeUTF8))
+"</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Ubuntu\'; font-size:11pt;\"><br /></p></body></html>", None))
+        self.tabWidget_status.setTabText(self.tabWidget_status.indexOf(self.tab_4), _translate("Wiki_Tool", "Result", None))
+        self.toolBar.setWindowTitle(_translate("Wiki_Tool", "toolBar", None))
+        self.actionRun.setText(_translate("Wiki_Tool", "Run", None))
+        self.actionRun.setToolTip(_translate("Wiki_Tool", "Run", None))
+        self.actionRun.setShortcut(_translate("Wiki_Tool", "F5", None))
+        self.actionConfigure.setText(_translate("Wiki_Tool", "Configure", None))
+        self.actionConfigure.setShortcut(_translate("Wiki_Tool", "Ctrl+O", None))
+        self.actionAbout.setText(_translate("Wiki_Tool", "About", None))
 
 
 if __name__ == "__main__":

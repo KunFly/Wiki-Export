@@ -28,7 +28,9 @@ class Dialog_config(QDialog, Ui_Dialog_config):
         """
         Slot documentation goes here.
         """
-        list_dump = QtGui.QFileDialog.getOpenFileNames()
+        list_dump = QtGui.QFileDialog.getOpenFileNames(
+                    self,
+                    "Select Dumps", "", "Dump files(*.xml *.bz2)")
         self.listWidget_dump.addItems (list_dump)
     
     @pyqtSignature("")
