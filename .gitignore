@@ -10,7 +10,6 @@ _eric4project/
 *.pydevproject
 .project
 .metadata
-bin/
 tmp/
 *.tmp
 *.bak
