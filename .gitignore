@@ -1,7 +1,12 @@
 #################
 ## Eclipse
 #################
-
+dist/
+build/
+.eric4project/
+_eric4project/
+*.e4p
+*.pyc
 *.pydevproject
 .project
 .metadata
